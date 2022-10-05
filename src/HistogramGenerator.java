@@ -1,17 +1,17 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class HistogramGenerator {
+public class HistogramGenerator<T> {
 
-    private final int [] data;
+    private final T [] data;
 
-    public HistogramGenerator(int [] data) {
+    public HistogramGenerator(T [] data) {
         this.data = data;
     }
 
-    public Map<Integer, Integer> getHistogram() {
-        Map<Integer, Integer> histogram = new HashMap<>();
-        for (int key : data) {
+    public Map<T, Integer> getHistogram() {
+        Map<T, Integer> histogram = new HashMap<T, Integer>();
+        for (T key : this.data) {
             histogram.put(key, histogram.containsKey(key) ? histogram.get(key) + 1 : 1);
         }
         return histogram;
